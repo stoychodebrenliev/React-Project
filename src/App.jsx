@@ -195,7 +195,6 @@ function App() {
 							</div>
 						</section>
 					</main>
-					<script src="tooplate-ivory-script.js"></script>
 				</div>
 		)
 }
