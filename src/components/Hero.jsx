@@ -8,10 +8,10 @@ export default function Hero() {
                 </div>
                 <div className="hero-content">
                     <div className="hero-eyebrow">Curated Living</div>
-                    <h1 className="hero-title">The Art of<br /><em>Quiet</em><br />Luxury</h1>
+                    <h1 className="hero-title">The Art of<br /><em>Making</em><br />Quality Yoghurt</h1>
                     <p className="hero-desc">Objects and interiors designed for the way you actually live — unhurried, tactile, and endlessly considered. Images by Unsplash</p>
                     <div className="hero-cta">
-                        <a href="#lookbook" className="cta-link">Explore the Collection</a>
+                        <a href="#lookbook" className="cta-link">Explore All Recipes</a>
                     </div>
                 </div>
             </section>

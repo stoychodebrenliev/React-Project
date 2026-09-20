@@ -7,11 +7,13 @@ export default function Header() {
             {/* <!-- ═══════ FLOATING PILL NAV ═══════ --> */}
             <nav className="pill-nav" aria-label="Main Navigation">
                 <a href="#hero" className="active">Home</a>
-                <a href="#lookbook">Lookbook</a>
-                <a href="#product">Shop</a>
+                <a href="#recipes">Recipes</a>
+                <a href="#product">Our Yoghurt</a>
                 <a href="#process">Process</a>
-                <a href="#video">Story</a>
+                <a href="#video">Our Story</a>
                 <a href="#signature">Contact</a>
+                <a href="#login">Login</a>
+                <a href="#register">Register</a>
             </nav>
 
             {/* <!-- ═══════ MOBILE ═══════ --> */}
@@ -19,10 +21,12 @@ export default function Header() {
             <nav className="mobile-nav" aria-label="Mobile Navigation">
                 <a href="#hero">Home</a>
                 <a href="#lookbook">Lookbook</a>
-                <a href="#product">Shop</a>
+                <a href="#product">Our Yoghurt</a>
                 <a href="#process">Process</a>
-                <a href="#video">Story</a>
+                <a href="#video">Our Story</a>
                 <a href="#signature">Contact</a>
+                <a href="#login">Login</a>
+                <a href="#register">Register</a>
             </nav>
         </>
     )
