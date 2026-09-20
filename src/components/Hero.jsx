@@ -3,13 +3,13 @@ export default function Hero() {
         <>
             <section className="canvas-section hero" id="hero">
                 <div className="hero-image">
-                    <img src="images/ivory-flow-01.jpg" alt="Elegant interior with natural textures" loading="eager" />
-                    <div className="hero-image-tag">Spring / Summer 2026</div>
+                    <img src="images/protein-yoghurt.png" alt="Protein Yoghurt" loading="eager" />
+                    <div className="hero-image-tag">2% Fat · High Protein</div>
                 </div>
                 <div className="hero-content">
-                    <div className="hero-eyebrow">Curated Living</div>
+                    <div className="hero-eyebrow">Tradition Meets Protein</div>
                     <h1 className="hero-title">The Art of<br /><em>Making</em><br />Quality Yoghurt</h1>
-                    <p className="hero-desc">Objects and interiors designed for the way you actually live — unhurried, tactile, and endlessly considered. Images by Unsplash</p>
+                    <p className="hero-desc">Traditional Bulgarian yoghurt, made with simple ingredients, authentic taste, and naturally rich in protein.</p>
                     <div className="hero-cta">
                         <a href="#lookbook" className="cta-link">Explore All Recipes</a>
                     </div>
