@@ -308,7 +308,7 @@ img { display: block; max-width: 100%; height: auto; }
 .lookbook-track.is-dragging img { pointer-events: none; }
 
 .lookbook-card {
-  flex: 0 0 auto;
+  flex: 0 0 340px;
   position: relative;
 }
 
@@ -319,7 +319,7 @@ img { display: block; max-width: 100%; height: auto; }
   box-shadow: 0 8px 40px rgba(26, 23, 20, 0.06);
   height: 55vh;
   min-height: 350px;
-  width: auto;
+  width: 100%;
   object-fit: cover;
   transition: transform 1s var(--ease-soft), box-shadow 0.8s var(--ease-soft);
 }
@@ -330,14 +330,12 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .lookbook-card-label {
-  position: absolute;
-  bottom: -28px;
-  left: 10px;
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
+  display: block;
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
 }
 
 .lookbook-footer {
@@ -383,6 +381,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .lookbook-arrow:hover svg { stroke: var(--oat); }
+
 
 /* ═══════════════════════════════════════════════
    SECTION 3: PRODUCT DETAIL
@@ -973,4 +972,9 @@ img { display: block; max-width: 100%; height: auto; }
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
+}
+
+.recipes-view-all {
+  font-size: 16px;
+  letter-spacing: 0.08em;
 }

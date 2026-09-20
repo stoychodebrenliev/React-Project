@@ -11,45 +11,39 @@ export default function Recipes() {
             <div className="lookbook-track">
 
                 <RecipeCard
-                    imageUrl="/images/ivory-flow-11.jpg"
+                    imageUrl="/images/tarator.webp"
                     alt="Minimalist living room with warm textures"
-                    label="No. 01 — Living"
+                    label="Tarator - Traditional Bulgarian Cold Soup"
                 />
 
                 <RecipeCard
-                    imageUrl="/images/ivory-flow-12.jpg"
+                    imageUrl="/images/banitsa.jpg"
                     alt="Handcrafted ceramic vases on a wooden shelf"
-                    label="No. 02 — Ceramics"
+                    label="Banitsa - Flaky Pastry with Yoghurt and Cheese"
                 />
 
                 <RecipeCard
-                    imageUrl="/images/ivory-flow-13.jpg"
+                    imageUrl="/images/bowl.webp"
                     alt="Textile samples with natural fibers and muted colors"
-                    label="No. 03 — Textiles"
+                    label="Berry Protein Bowl - A Healthy and Delicious Breakfast Option"
                 />
 
                 <RecipeCard
-                    imageUrl="/images/ivory-flow-14.jpg"
+                    imageUrl="/images/banana.jpg"
                     alt="Craftsperson shaping wood in a sunlit workshop"
-                    label="No. 04 — Craft"
+                    label="Banana & Cottage Cheese Protein Shake - A Quick and Nutritious Post-Workout Drink"
                 />
 
                 <RecipeCard
-                    imageUrl="/images/ivory-flow-15.jpg"
+                    imageUrl="/images/smootie.jpg"
                     alt="Cozy bedroom with layered bedding and soft lighting"
-                    label="No. 05 — Bedroom"
-                />
-
-                <RecipeCard
-                    imageUrl="/images/ivory-flow-16.jpg"
-                    alt="Elegant dining area with natural wood and neutral tones"
-                    label="No. 06 — Light"
+                    label="Fruit Yoghurt Smoothie - A Refreshing and Creamy Beverage"
                 />
 
             </div>
 
             <div className="lookbook-footer reveal">
-                <a href="#" className="cta-link">
+                <a href="#" className="cta-link recipes-view-all">
                     View All Recipes
                 </a>
 
