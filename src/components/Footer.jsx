@@ -3,7 +3,7 @@ export default function Footer() {
         <>
             {/* <!-- SECTION 6: THE SIGNATURE --> */}
             <section className="canvas-section signature" id="signature">
-                <div className="signature-bg-logo" aria-hidden="true">Ivory Flow</div>
+                <div className="signature-bg-logo" aria-hidden="true">NIKA</div>
                 <div className="signature-content reveal">
                     <div className="signature-mark">The Ivory Flow</div>
                     <h2 className="signature-heading">Let's create<br />something enduring</h2>
@@ -17,7 +17,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="signature-footer">
-                    <a href="https://www.tooplate.com" target="_blank" rel="nofollow">Free HTML Template</a> by Tooplate &middot; The Ivory Flow
+                    <a href="https://www.tooplate.com" target="_blank" rel="nofollow">Free HTML Template</a> 
                 </div>
             </section>
         </>

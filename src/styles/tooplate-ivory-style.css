@@ -521,7 +521,7 @@ img { display: block; max-width: 100%; height: auto; }
    SECTION 4: THE PROCESS (Vertical Timeline)
    ═══════════════════════════════════════════════ */
 .process {
-  background: var(--ink);
+  background: #3A171C;
   color: var(--oat);
   min-height: 100vh;
   display: flex;
@@ -531,6 +531,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .process-inner {
   display: grid;
+  align-items: center;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   width: 100%;
@@ -570,13 +571,13 @@ img { display: block; max-width: 100%; height: auto; }
   left: 0;
   width: 1px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, var(--terra), var(--terra), transparent);
+  background: linear-gradient(180deg, transparent, #B76A77, #B76A77, transparent);
 }
 
 .timeline-item {
   position: relative;
   padding: 0 0 56px 0;
-  opacity: 0.2;
+  opacity: 1;
   transform: translateY(12px);
   transition: opacity 0.9s var(--ease-soft), transform 0.9s var(--ease-soft);
 }
@@ -595,7 +596,7 @@ img { display: block; max-width: 100%; height: auto; }
   height: 9px;
   border-radius: 50%;
   border: 1.5px solid var(--terra);
-  background: var(--ink);
+  background: #3A171C;
   transition: background 0.5s var(--ease-soft);
 }
 
@@ -608,7 +609,7 @@ img { display: block; max-width: 100%; height: auto; }
   font-size: 9px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--terra);
+  color: #C98691;
   margin-bottom: 10px;
 }
 
