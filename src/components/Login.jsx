@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom"
 
-export default function Register() {
+export default function Login() {
     return (
         <main className="auth-page">
             <section className="auth-section">
-                <h1>Create an Account</h1>
-                <p>Please fill out the form below to create an account.</p>
+                <h1>Login to Your Account</h1>
 
                 <form>
                     <label htmlFor="email">Email</label>
@@ -22,23 +21,14 @@ export default function Register() {
                         type="password"
                         id="password"
                         name="password"
-                        placeholder="Create a password"
+                        placeholder="Enter your password"
                         required
                     />
 
-                    <label htmlFor="confirmPassword">Confirm Password</label>
-                    <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        placeholder="Confirm your password"
-                        required
-                    />
-
-                    <button type="submit">Register</button>
+                    <button type="submit">Login</button>
 
                     <p>
-                        Already have an account? <Link to="/login">Login here</Link>
+                        Don't have an account? <Link to="/register">Register here</Link>
                     </p>
                 </form>
             </section>

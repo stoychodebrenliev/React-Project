@@ -1,3 +1,5 @@
+import { Routes, Route } from "react-router-dom";
+
 import BrandStory from './components/BrandStory.jsx'
 import Footer from './components/Footer.jsx'
 import Header from './components/Header.jsx'
@@ -6,26 +8,41 @@ import Recipes from './components/Recipes.jsx'
 import Process from './components/Process.jsx'
 import Product from './components/OurYoghurt.jsx'
 
+import Login from './components/Login.jsx'
+import Register from './components/Register.jsx'
+
 function App() {
 	return (
 		<div>
 			<Header />
 
-			<main>
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<>
+							<main>
 
-				<Hero />
+								<Hero />
 
-				<Recipes />
+								<Recipes />
 
-				<Product />
+								<Product />
 
-				<Process />
+								<Process />
 
-				<BrandStory />
+								<BrandStory />
 
-			</main>
+							</main>
 
-			<Footer />
+							<Footer />
+						</>
+					}
+				/>
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
+			</Routes>
+
 		</div>
 	)
 }
