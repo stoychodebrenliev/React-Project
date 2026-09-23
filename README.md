@@ -9,4 +9,6 @@
 - [x] Extract Components
 - [x] Extract Recipes in Components
 - [x] Rename Components based on my idea
-- [x] Fix the Hero Section based ot the new Website
+- [x] Fix All Sections based ot the new Website
+- [x] Create Login and Register Pages
+- [x] Style Login and Register Pages

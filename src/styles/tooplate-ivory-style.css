@@ -981,3 +981,94 @@ img { display: block; max-width: 100%; height: auto; }
   font-size: 16px;
   letter-spacing: 0.08em;
 }
+
+/* =========================
+   LOGIN / REGISTER
+========================= */
+
+.auth-page {
+  min-height: 100vh;
+  background: var(--oat);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 20px 60px;
+}
+
+.auth-section {
+  width: 100%;
+  max-width: 460px;
+  background: var(--white);
+  padding: 48px;
+  border-radius: 28px;
+  box-shadow: 0 12px 40px rgba(26, 23, 20, 0.08);
+}
+
+.auth-section h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.auth-section > p {
+  color: var(--ink-muted);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.auth-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-section label {
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+.auth-section input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--oat-deep);
+  border-radius: 12px;
+  background: var(--oat);
+  font: inherit;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.auth-section input:focus {
+  outline: none;
+  border-color: var(--terra);
+}
+
+.auth-section button {
+  margin-top: 10px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 12px;
+  background: var(--terra);
+  color: var(--white);
+  font: inherit;
+  cursor: pointer;
+}
+
+.auth-section button:hover {
+  opacity: 0.9;
+}
+
+.auth-section form p {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--ink-muted);
+}
+
+.auth-section a {
+  color: var(--terra);
+  text-decoration: none;
+}
