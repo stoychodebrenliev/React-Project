@@ -8,7 +8,7 @@ export default function Header() {
 
             {/* <!-- ═══════ FLOATING PILL NAV ═══════ --> */}
             <nav className="pill-nav" aria-label="Main Navigation">
-                <a href="#hero" className="active">Home</a>
+                <Link to="/" className="active">Home</Link>
                 <a href="#recipes">Recipes</a>
                 <a href="#product">Our Yoghurt</a>
                 <a href="#process">Process</a>
