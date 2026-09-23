@@ -8,8 +8,9 @@ import Recipes from './components/Recipes.jsx'
 import Process from './components/Process.jsx'
 import Product from './components/OurYoghurt.jsx'
 
-import Login from './components/Login.jsx'
-import Register from './components/Register.jsx'
+import RecipesPage from './pages/RecipesPage.jsx'
+import Login from './pages/Login.jsx'
+import Register from './pages/Register.jsx'
 
 function App() {
 	return (
@@ -39,6 +40,8 @@ function App() {
 						</>
 					}
 				/>
+
+				<Route path="/recipes" element={<RecipesPage />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
 			</Routes>

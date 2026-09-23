@@ -9,11 +9,12 @@ export default function Header() {
             {/* <!-- ═══════ FLOATING PILL NAV ═══════ --> */}
             <nav className="pill-nav" aria-label="Main Navigation">
                 <Link to="/" className="active">Home</Link>
-                <a href="#recipes">Recipes</a>
-                <a href="#product">Our Yoghurt</a>
-                <a href="#process">Process</a>
-                <a href="#video">Our Story</a>
-                <a href="#signature">Contact</a>
+                <Link to="/recipes">Recipes</Link>
+                
+                <a href="/#product">Our Yoghurt</a>
+                <a href="/#process">Process</a>
+                <a href="/#brand">Our Story</a>
+                <a href="/#signature">Contact</a>
 
                 <Link to="/login">Login</Link>
                 <Link to="/register">Register</Link>
@@ -22,13 +23,13 @@ export default function Header() {
             {/* <!-- ═══════ MOBILE ═══════ --> */}
             <button className="hamburger" aria-label="Toggle Navigation"><span></span><span></span><span></span></button>
             <nav className="mobile-nav" aria-label="Mobile Navigation">
-                <a href="#hero">Home</a>
-                <a href="#lookbook">Lookbook</a>
-                <a href="#product">Our Yoghurt</a>
-                <a href="#process">Process</a>
-                <a href="#video">Our Story</a>
-                <a href="#signature">Contact</a>
-                
+                <Link to="/">Home</Link>
+                <Link to="/recipes">Recipes</Link>
+                <a href="/#product">Our Yoghurt</a>
+                <a href="/#process">Process</a>
+                <a href="/#video">Our Story</a>
+                <a href="/#signature">Contact</a>
+
                 <Link to="/login">Login</Link>
                 <Link to="/register">Register</Link>
             </nav>
