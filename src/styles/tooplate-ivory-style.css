@@ -257,7 +257,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ═══════════════════════════════════════════════
-   SECTION 2: THE LOOKBOOK (Horizontal Scroll-Snap)
+   SECTION 2: Recipes (Horizontal Scroll-Snap)
    ═══════════════════════════════════════════════ */
 .recipe-section {
   background: var(--oat-mid);
@@ -382,6 +382,73 @@ img { display: block; max-width: 100%; height: auto; }
 
 .recipe-arrow:hover svg { stroke: var(--oat); }
 
+.recipes-page {
+  background: var(--oat-mid);
+  min-height: 100vh;
+  padding: 140px 64px 100px;
+}
+
+.recipes-page-header {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.recipes-page-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.recipes-page-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+.recipes-page-description {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  max-width: 480px;
+}
+
+.recipes-page-grid {
+  max-width: 1250px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px 28px;
+}
+
+.recipes-page .recipe-card {
+  flex: initial;
+  width: 100%;
+}
+
+.recipes-page .recipe-card img {
+  width: 100%;
+  height: 460px;
+  min-height: 0;
+  object-fit: cover;
+}
+
+.recipes-page .recipe-card-label {
+  margin-top: 16px;
+  font-size: 13px;
+}
 
 /* ═══════════════════════════════════════════════
    SECTION 3: PRODUCT DETAIL
@@ -1071,4 +1138,41 @@ img { display: block; max-width: 100%; height: auto; }
 .auth-section a {
   color: var(--terra);
   text-decoration: none;
+}
+
+@media (max-width: 1000px) {
+  .recipes-page {
+    padding: 140px 40px 80px;
+  }
+
+  .recipes-page-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .recipes-page {
+    padding: 120px 20px 70px;
+  }
+
+  .recipes-page-header {
+    margin-bottom: 50px;
+  }
+
+  .recipes-page-header h1 {
+    font-size: 48px;
+  }
+
+  .recipes-page-description {
+    font-size: 13px;
+  }
+
+  .recipes-page-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .recipes-page .recipe-card img {
+    height: 420px;
+  }
 }

@@ -14,10 +14,10 @@ export default function RecipesPage() {
                 </p>
             </div>
 
-            <div className="recipes-grid">
+            <div className="recipes-page-grid">
 
                 <RecipeCard
-                    imageUrl="/images/tarator.jpg"
+                    imageUrl="/images/tarator.webp"
                     alt="Traditional Bulgarian tarator"
                     label="Tarator"
                 />
@@ -29,25 +29,25 @@ export default function RecipesPage() {
                 />
 
                 <RecipeCard
-                    imageUrl="/images/protein-bowl.jpg"
+                    imageUrl="/images/bowl.webp"
                     alt="Berry protein yoghurt bowl"
                     label="Berry Protein Bowl"
                 />
 
                 <RecipeCard
-                    imageUrl="/images/banana-shake.jpg"
+                    imageUrl="/images/banana.jpg"
                     alt="Banana and cottage cheese protein shake"
                     label="Banana & Cottage Cheese Protein Shake"
                 />
 
                 <RecipeCard
-                    imageUrl="/images/yoghurt-smoothie.jpg"
+                    imageUrl="/images/smootie.jpg"
                     alt="Fruit yoghurt smoothie"
                     label="Fruit Yoghurt Smoothie"
                 />
 
                 <RecipeCard
-                    imageUrl="/images/yoghurt-pancakes.jpg"
+                    imageUrl="/images/pancakes.jpg"
                     alt="Yoghurt pancakes"
                     label="Yoghurt Pancakes"
                 />
