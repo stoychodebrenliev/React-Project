@@ -12,3 +12,6 @@
 - [x] Fix All Sections based ot the new Website
 - [x] Create Login and Register Pages
 - [x] Style Login and Register Pages
+- [x] Build Recipes Page
+- [x] Setup Supabase Project and Connect it to my React Project
+- [x] Register and Login Flow
