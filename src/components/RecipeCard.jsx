@@ -1,13 +1,13 @@
 export default function RecipeCard(props) {
     return (
-        <div className="lookbook-card">
+        <div className="recipe-card">
             <img
                 src={props.imageUrl}
                 alt={props.alt}
                 loading="lazy"
             />
 
-            <span className="lookbook-card-label">
+            <span className="recipe-card-label">
                 {props.label}
             </span>
         </div>

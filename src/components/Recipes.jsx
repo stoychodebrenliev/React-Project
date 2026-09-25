@@ -2,13 +2,13 @@ import RecipeCard from "./RecipeCard.jsx";
 
 export default function Recipes() {
     return (
-        <section className="canvas-section lookbook" id="recipes">
-            <div className="lookbook-header reveal">
-                <h2 className="lookbook-title">Recipes</h2>
-                <span className="lookbook-count">01 — 06</span>
+        <section className="canvas-section recipe-section" id="recipes">
+            <div className="recipe-header reveal">
+                <h2 className="recipe-title">Recipes</h2>
+                <span className="recipe-count">01 — 06</span>
             </div>
 
-            <div className="lookbook-track">
+            <div className="recipe-track">
 
                 <RecipeCard
                     imageUrl="/images/tarator.webp"
@@ -42,14 +42,14 @@ export default function Recipes() {
 
             </div>
 
-            <div className="lookbook-footer reveal">
+            <div className="recipe-footer reveal">
                 <a href="#" className="cta-link recipes-view-all">
                     View All Recipes
                 </a>
 
-                <div className="lookbook-arrows">
+                <div className="recipe-arrows">
                     <button
-                        className="lookbook-arrow"
+                        className="recipe-arrow"
                         id="lbPrev"
                         aria-label="Previous"
                     >
@@ -59,7 +59,7 @@ export default function Recipes() {
                     </button>
 
                     <button
-                        className="lookbook-arrow"
+                        className="recipe-arrow"
                         id="lbNext"
                         aria-label="Next"
                     >

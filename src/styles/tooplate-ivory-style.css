@@ -259,7 +259,7 @@ img { display: block; max-width: 100%; height: auto; }
 /* ═══════════════════════════════════════════════
    SECTION 2: THE LOOKBOOK (Horizontal Scroll-Snap)
    ═══════════════════════════════════════════════ */
-.lookbook {
+.recipe-section {
   background: var(--oat-mid);
   display: flex;
   flex-direction: column;
@@ -268,7 +268,7 @@ img { display: block; max-width: 100%; height: auto; }
   padding: 60px 0;
 }
 
-.lookbook-header {
+.recipe-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -276,21 +276,21 @@ img { display: block; max-width: 100%; height: auto; }
   margin-bottom: 40px;
 }
 
-.lookbook-title {
+.recipe-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(28px, 3.5vw, 48px);
   font-weight: 300;
   color: var(--ink);
 }
 
-.lookbook-count {
+.recipe-count {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   color: var(--ink-faint);
   letter-spacing: 0.15em;
 }
 
-.lookbook-track {
+.recipe-track {
   display: flex;
   gap: 28px;
   padding: 0 64px 40px;
@@ -302,17 +302,17 @@ img { display: block; max-width: 100%; height: auto; }
   user-select: none;
 }
 
-.lookbook-track::-webkit-scrollbar { display: none; }
+.recipe-track::-webkit-scrollbar { display: none; }
 
-.lookbook-track.is-dragging { cursor: grabbing; }
-.lookbook-track.is-dragging img { pointer-events: none; }
+.recipe-track.is-dragging { cursor: grabbing; }
+.recipe-track.is-dragging img { pointer-events: none; }
 
-.lookbook-card {
+.recipe-card {
   flex: 0 0 340px;
   position: relative;
 }
 
-.lookbook-card img {
+.recipe-card img {
   display: block;
   border-radius: 32px;
   border: 10px solid var(--white);
@@ -324,12 +324,12 @@ img { display: block; max-width: 100%; height: auto; }
   transition: transform 1s var(--ease-soft), box-shadow 0.8s var(--ease-soft);
 }
 
-.lookbook-card:hover img {
+.recipe-card:hover img {
   transform: translateY(-4px);
   box-shadow: 0 16px 56px rgba(26, 23, 20, 0.1);
 }
 
-.lookbook-card-label {
+.recipe-card-label {
   display: block;
   margin-top: 14px;
   font-size: 12px;
@@ -338,7 +338,7 @@ img { display: block; max-width: 100%; height: auto; }
   letter-spacing: 0.08em;
 }
 
-.lookbook-footer {
+.recipe-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -346,12 +346,12 @@ img { display: block; max-width: 100%; height: auto; }
   padding: 0 64px;
 }
 
-.lookbook-arrows {
+.recipe-arrows {
   display: flex;
   gap: 8px;
 }
 
-.lookbook-arrow {
+.recipe-arrow {
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -364,12 +364,12 @@ img { display: block; max-width: 100%; height: auto; }
   transition: border-color 0.5s var(--ease-soft), background 0.5s var(--ease-soft);
 }
 
-.lookbook-arrow:hover {
+.recipe-arrow:hover {
   border-color: var(--ink);
   background: var(--ink);
 }
 
-.lookbook-arrow svg {
+.recipe-arrow svg {
   width: 16px;
   height: 16px;
   stroke: var(--ink);
@@ -380,7 +380,7 @@ img { display: block; max-width: 100%; height: auto; }
   transition: stroke 0.5s var(--ease-soft);
 }
 
-.lookbook-arrow:hover svg { stroke: var(--oat); }
+.recipe-arrow:hover svg { stroke: var(--oat); }
 
 
 /* ═══════════════════════════════════════════════

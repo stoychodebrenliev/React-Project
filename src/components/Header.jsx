@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router"
 
 export default function Header() {
     return (
@@ -10,7 +10,7 @@ export default function Header() {
             <nav className="pill-nav" aria-label="Main Navigation">
                 <Link to="/" className="active">Home</Link>
                 <Link to="/recipes">Recipes</Link>
-                
+
                 <a href="/#product">Our Yoghurt</a>
                 <a href="/#process">Process</a>
                 <a href="/#brand">Our Story</a>

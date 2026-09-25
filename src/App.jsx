@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router";
 
 import BrandStory from './components/BrandStory.jsx'
 import Footer from './components/Footer.jsx'
