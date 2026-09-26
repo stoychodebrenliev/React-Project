@@ -65,7 +65,8 @@ img { display: block; max-width: 100%; height: auto; }
   box-shadow: 0 4px 24px rgba(26, 23, 20, 0.06);
 }
 
-.pill-nav a {
+.pill-nav a,
+.pill-nav button {
   font-family: 'Manrope', sans-serif;
   font-size: 11px;
   font-weight: 500;
@@ -74,12 +75,27 @@ img { display: block; max-width: 100%; height: auto; }
   color: var(--ink-soft);
   padding: 8px 18px;
   border-radius: 999px;
-  transition: color 0.5s var(--ease-soft), background 0.5s var(--ease-soft);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  
+
+  cursor: pointer;
   white-space: nowrap;
+
+  position: static;
+  transform: none;
+
+  transition:
+    color 0.5s var(--ease-soft),
+    background 0.5s var(--ease-soft);
 }
 
-.pill-nav a:hover {
+.pill-nav a:hover,
+.pill-nav button:hover {
   color: var(--ink);
+ 
 }
 
 .pill-nav a.active {

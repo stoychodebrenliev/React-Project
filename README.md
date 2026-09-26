@@ -15,3 +15,5 @@
 - [x] Build Recipes Page
 - [x] Setup Supabase Project and Connect it to my React Project
 - [x] Register and Login Flow
+- [x] Stay Logged in
+- [x] Logout Function 

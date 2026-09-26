@@ -1,6 +1,11 @@
 import { Link } from "react-router"
+import { supabase } from "../lib/supabaseClient";
 
-export default function Header() {
+export default function Header({ user }) {
+
+    async function handleLogout() {
+        await supabase.auth.signOut();
+    }
     return (
         <>
             {/* <!-- ═══════ EST. 2026 DECORATOR ═══════ --> */}
@@ -16,8 +21,14 @@ export default function Header() {
                 <a href="/#brand">Our Story</a>
                 <a href="/#signature">Contact</a>
 
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+                {user ? (
+                    <button className="pill-nav" onClick={handleLogout}>Logout</button>
+                ) : (
+                    <>
+                        <Link to="/login">Login</Link>
+                        <Link to="/register">Register</Link>
+                    </>
+                )}
             </nav>
 
             {/* <!-- ═══════ MOBILE ═══════ --> */}
@@ -30,8 +41,14 @@ export default function Header() {
                 <a href="/#video">Our Story</a>
                 <a href="/#signature">Contact</a>
 
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+                {user ? (
+                    <button onClick={handleLogout}>Logout</button>
+                ) : (
+                    <>
+                        <Link to="/login">Login</Link>
+                        <Link to="/register">Register</Link>
+                    </>
+                )}
             </nav>
         </>
     )
