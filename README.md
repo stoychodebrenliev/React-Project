@@ -17,3 +17,4 @@
 - [x] Register and Login Flow
 - [x] Stay Logged in
 - [x] Logout Function 
+- [x] Authentication and Route Protection

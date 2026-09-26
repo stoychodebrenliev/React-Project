@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router"
+import { Link, useNavigate, Navigate } from "react-router"
 import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 
-export default function Register() {
+export default function Register({user}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -10,6 +10,10 @@ export default function Register() {
     const [successMessage, setSuccessMessage] = useState("");
 
     const navigate = useNavigate();
+
+    if (user) {
+        return <Navigate to="/" />;
+    }
 
     async function handleRegister(e) {
         e.preventDefault();
@@ -32,7 +36,6 @@ export default function Register() {
             return;
         }
 
-        setSuccessMessage("Registration successful!");
         navigate("/");
     }
 

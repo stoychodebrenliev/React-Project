@@ -1,12 +1,17 @@
-import { Link, useNavigate } from "react-router"
+import { Link, useNavigate, Navigate } from "react-router"
 import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 
-export default function Login() {
+export default function Login({user}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    
     const navigate = useNavigate();
+
+    if (user) {
+        return <Navigate to="/" />;
+    }
 
     async function handleLogin(e) {
         e.preventDefault();
