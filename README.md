@@ -18,3 +18,4 @@
 - [x] Stay Logged in
 - [x] Logout Function 
 - [x] Authentication and Route Protection
+- [x] Create Recipes Table in Supabase and Test it

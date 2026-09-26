@@ -1,6 +1,28 @@
 import RecipeCard from "../components/RecipeCard.jsx";
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabaseClient.js";
 
 export default function RecipesPage() {
+    const [recipes, setRecipes] = useState([]);
+
+    useEffect(() => {
+        async function getRecipes() {
+            const { data, error } = await supabase
+            .from("recipes")
+            .select("*");
+
+            if (error) {
+                console.log(error.message);
+                return;
+            } 
+
+            console.log(data);
+            setRecipes(data);
+        };
+
+        getRecipes();
+    }, []);
+
     return (
         <main className="recipes-page">
             <div className="recipes-page-header">
@@ -16,41 +38,14 @@ export default function RecipesPage() {
 
             <div className="recipes-page-grid">
 
-                <RecipeCard
-                    imageUrl="/images/tarator.webp"
-                    alt="Traditional Bulgarian tarator"
-                    label="Tarator"
-                />
-
-                <RecipeCard
-                    imageUrl="/images/banitsa.jpg"
-                    alt="Traditional Bulgarian banitsa"
-                    label="Banitsa"
-                />
-
-                <RecipeCard
-                    imageUrl="/images/bowl.webp"
-                    alt="Berry protein yoghurt bowl"
-                    label="Berry Protein Bowl"
-                />
-
-                <RecipeCard
-                    imageUrl="/images/banana.jpg"
-                    alt="Banana and cottage cheese protein shake"
-                    label="Banana & Cottage Cheese Protein Shake"
-                />
-
-                <RecipeCard
-                    imageUrl="/images/smootie.jpg"
-                    alt="Fruit yoghurt smoothie"
-                    label="Fruit Yoghurt Smoothie"
-                />
-
-                <RecipeCard
-                    imageUrl="/images/pancakes.jpg"
-                    alt="Yoghurt pancakes"
-                    label="Yoghurt Pancakes"
-                />
+                {recipes.map((recipe) => (
+                    <RecipeCard
+                        key={recipe.id}
+                        imageUrl={recipe.image_url}
+                        alt={recipe.title}
+                        label={recipe.title}
+                    />
+                ))}
 
             </div>
         </main>
