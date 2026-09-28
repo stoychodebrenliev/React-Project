@@ -20,3 +20,4 @@
 - [x] Authentication and Route Protection
 - [x] Create Recipes Table in Supabase and Test it
 - [x] Connect Table to React
+- [x] Fix Scroll BTN for Recipes and fix Navigation Items color on Click
