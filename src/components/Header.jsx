@@ -36,19 +36,20 @@ export default function Header({ user }) {
             {/* <!-- ═══════ MOBILE ═══════ --> */}
             <button className="hamburger" aria-label="Toggle Navigation"><span></span><span></span><span></span></button>
             <nav className="mobile-nav" aria-label="Mobile Navigation">
-                <Link to="/">Home</Link>
-                <a href="/#recipes">Recipes</a>
-                <a href="/#product">Our Yoghurt</a>
-                <a href="/#process">Process</a>
-                <a href="/#video">Our Story</a>
-                <a href="/#signature">Contact</a>
+                <Link to="/" className={location.pathname === "/" && location.hash === "" ? "active" : ""}
+                      onClick={() => window.scrollTo(0, 0)}>Home</Link>
+                <a href="/#recipes" className={location.hash === "#recipes" ? "active" : ""}>Recipes</a>
+                <a href="/#product" className={location.hash === "#product" ? "active" : ""}>Our Yoghurt</a>
+                <a href="/#process" className={location.hash === "#process" ? "active" : ""}>Process</a>
+                <a href="/#video" className={location.hash === "#video" ? "active" : ""}>Our Story</a>
+                <a href="/#signature" className={location.hash === "#signature" ? "active" : ""}>Contact</a>
 
                 {user ? (
                     <button onClick={handleLogout}>Logout</button>
                 ) : (
                     <>
-                        <Link to="/login">Login</Link>
-                        <Link to="/register">Register</Link>
+                        <Link to="/login" className={location.pathname === "/login" ? "active" : ""}>Login</Link>
+                        <Link to="/register" className={location.pathname === "/register" ? "active" : ""}>Register</Link>
                     </>
                 )}
             </nav>
