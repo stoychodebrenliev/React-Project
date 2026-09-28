@@ -1,6 +1,7 @@
 import RecipeCard from "../components/RecipeCard.jsx";
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient.js";
+import { Link } from "react-router";
 
 export default function RecipesPage() {
     const [recipes, setRecipes] = useState([]);
@@ -39,12 +40,16 @@ export default function RecipesPage() {
             <div className="recipes-page-grid">
 
                 {recipes.map((recipe) => (
-                    <RecipeCard
+                    <Link
                         key={recipe.id}
+                        to={`/recipes/${recipe.id}`}
+                    >
+                    <RecipeCard
                         imageUrl={recipe.image_url}
                         alt={recipe.title}
                         label={recipe.title}
                     />
+                    </Link>
                 ))}
 
             </div>
