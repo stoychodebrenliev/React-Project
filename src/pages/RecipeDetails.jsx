@@ -26,24 +26,47 @@ export default function RecipeDetails() {
         getRecipe();
     }, [id]);
 
-        if (errorMessage) {
-            return <p> {errorMessage} </p>
-        }
+    if (errorMessage) {
+        return <p> {errorMessage} </p>
+    }
 
-        if(!recipe) {
-            return <p> Loading... </p>
-        }
+    if (!recipe) {
+        return <p> Loading... </p>
+    }
     return (
         <main className="recipe-details">
-            <img
-            src={recipe.image_url} 
-            alt={recipe.title} 
-            />
+            <div className="recipe-details-image">
+                <img
+                    src={recipe.image_url}
+                    alt={recipe.title}
+                />
+            </div>
 
-            <h1>{recipe.title}</h1>
+            <div className="recipe-details-content">
+                <h1>{recipe.title}</h1>
 
-            <p>{recipe.description}</p>
-            
+                <div className="recipe-meta">
+                    <div>
+                        <span className="recipe-meta-label">Prep Time</span>
+                        <span className="recipe-meta-value">{recipe.prep_time} min</span>
+                    </div>
+
+                    <div>
+                        <span className="recipe-meta-label">Servings</span>
+                        <span className="recipe-meta-value">{recipe.servings}</span>
+                    </div>
+                </div>
+
+                <h2>Description</h2>
+                <p>{recipe.description}</p>
+
+                <h2>Ingredients</h2>
+                <p className="recipe-list">{recipe.ingredients}</p>
+
+                <h2>Instructions</h2>
+                <p className="recipe-list">{recipe.instructions}</p>
+
+            </div>
         </main>
     );
 }
