@@ -21,3 +21,4 @@
 - [x] Create Recipes Table in Supabase and Test it
 - [x] Connect Table to React
 - [x] Fix Scroll BTN for Recipes and fix Navigation Items color on Click
+- [x] Split the CSS into separate files for better organization
