@@ -1,0 +1,150 @@
+/* ═══════════════════════════════════════════════
+   SECTION 3: PRODUCT DETAIL
+   ═══════════════════════════════════════════════ */
+.product {
+  background: var(--oat);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.product-image-zone {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  cursor: none;
+}
+
+.product-image-zone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mouse-following Terracotta Buy Circle */
+.buy-circle {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--terra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.5s var(--ease-soft), transform 0.5s var(--ease-soft);
+  mix-blend-mode: normal;
+}
+
+.buy-circle.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.buy-circle span {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.product-info {
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 20px;
+}
+
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.product-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--terra);
+  margin-bottom: 24px;
+}
+
+.product-desc {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--ink-muted);
+  max-width: 400px;
+  margin-bottom: 32px;
+}
+
+.product-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 36px;
+  border-top: 1px solid var(--oat-deep);
+}
+
+.product-spec {
+  flex: 1 1 50%;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--oat-deep);
+}
+
+.product-spec dt {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 4px;
+}
+
+.product-spec dd {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.product-actions {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+
+  .product { grid-template-columns: 1fr; }
+  .product-image-zone { height: 50vh; }
+  .product-info { padding: 48px 40px; } 
+}
+
+@media (max-width: 768px) {
+  .product-image-zone { height: 50vh; cursor: auto; }
+  .buy-circle { display: none; }
+  .product-info { padding: 36px 24px 48px; }
+}

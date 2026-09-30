@@ -1,3 +1,5 @@
+import "../styles/Process.css";
+
 export default function Process() {
     return (
         <>

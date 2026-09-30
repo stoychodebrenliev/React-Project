@@ -1,6 +1,7 @@
 import RecipeCard from "./RecipeCard.jsx";
 import { useRef } from "react";
 import { Link } from "react-router";
+import "../styles/Recipes.css";
 
 export default function Recipes() {
     const trackRef = useRef(null);

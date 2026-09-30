@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* CSS Document 
+
+Tooplate 2166 Ivory Flow
+    
+https://www.tooplate.com/view/2166-ivory-flow
+
+*/
+
+/* ═══════════════════════════════════════════════
+   RESET & VARIABLES
+   ═══════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --oat: #FCFAF8;
+  --oat-mid: #F5F0EB;
+  --oat-deep: #EDE6DD;
+  --terra: #7C3340;
+  --terra-light: rgba(106, 30, 42, 0.12);
+  --terra-ghost: rgba(106, 30, 42, 0.06);
+  --ink: #100d0a;
+  --ink-soft: #3D3832;
+  --ink-muted: #8A8279;
+  --ink-faint: #B8B0A6;
+  --white: #FFFFFF;
+  --ease-soft: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--oat);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+
+/* ═══════════════════════════════════════════════
+   EXPANDING UNDERLINE CTA (No Standard Buttons)
+   ═══════════════════════════════════════════════ */
+.cta-link {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terra);
+  position: relative;
+  padding-bottom: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.cta-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background: var(--terra);
+  transition: width 0.7s var(--ease-soft), left 0.7s var(--ease-soft);
+}
+
+.cta-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.cta-link--dark { color: var(--ink); }
+.cta-link--dark::after { background: var(--ink); }
+
+.cta-link--light { color: var(--oat); }
+.cta-link--light::after { background: var(--oat); }
+
+/* ═══════════════════════════════════════════════
+   STICKY SECTION ARCHITECTURE
+   ═══════════════════════════════════════════════ */
+.canvas-section {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.canvas-section:nth-child(1) { z-index: 1; }
+.canvas-section:nth-child(2) { z-index: 2; }
+.canvas-section:nth-child(3) { z-index: 3; }
+.canvas-section:nth-child(4) { z-index: 4; }
+.canvas-section:nth-child(5) { z-index: 5; }
+.canvas-section:nth-child(6) { z-index: 6; }
+
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════════════════ */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.9s var(--ease-soft), transform 0.9s var(--ease-soft);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ═══════════════════════════════════════════════
+   PREFERS REDUCED MOTION
+   ═══════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 768px) {
+  .canvas-section {
+    position: relative;
+    top: auto;
+  } 
+}

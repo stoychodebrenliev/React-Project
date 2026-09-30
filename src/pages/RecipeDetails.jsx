@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient.js";
 import { useParams } from "react-router";
+import "../styles/RecipeDetails.css";
 
 export default function RecipeDetails() {
     const { id } = useParams();
@@ -55,6 +56,12 @@ export default function RecipeDetails() {
                         <span className="recipe-meta-label">Servings</span>
                         <span className="recipe-meta-value">{recipe.servings}</span>
                     </div>
+                </div>
+
+                <div className="recipe-actions">
+                    <button className="recipe-action-btn">Edit Recipe</button>
+                    <button className="recipe-action-btn">Delete Recipe</button>
+                    <button className="recipe-action-btn">Add to Favorites</button>
                 </div>
 
                 <h2>Description</h2>

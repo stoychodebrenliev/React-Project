@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router"
 import { supabase } from "../lib/supabaseClient";
+import "../styles/Header.css";
 
 export default function Header({ user }) {
     const location = useLocation();

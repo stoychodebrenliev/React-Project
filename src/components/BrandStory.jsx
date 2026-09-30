@@ -1,3 +1,5 @@
+import "../styles/BrandStory.css"
+
 export default function BrandStory() {
     return (
         <section className="canvas-section video-fragment" id="brand">

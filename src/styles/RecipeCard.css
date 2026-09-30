@@ -1,0 +1,31 @@
+.recipe-card {
+  flex: 0 0 340px;
+  position: relative;
+}
+
+.recipe-card img {
+  display: block;
+  border-radius: 32px;
+  border: 10px solid var(--white);
+  box-shadow: 0 8px 40px rgba(26, 23, 20, 0.06);
+  height: 55vh;
+  min-height: 350px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 1s var(--ease-soft), box-shadow 0.8s var(--ease-soft);
+}
+
+.recipe-card:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 56px rgba(26, 23, 20, 0.1);
+}
+
+.recipe-card-label {
+  display: block;
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+}
+

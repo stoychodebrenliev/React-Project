@@ -1,0 +1,115 @@
+/* ═══════════════════════════════════════════════
+   SECTION 6: THE SIGNATURE
+   ═══════════════════════════════════════════════ */
+.signature {
+  background: var(--oat-mid);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Massive semi-transparent logo background */
+.signature-bg-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(120px, 18vw, 280px);
+  font-weight: 300;
+  color: rgba(26, 23, 20, 0.035);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.05em;
+}
+
+.signature-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 480px;
+  padding: 40px;
+}
+
+.signature-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 32px;
+}
+
+.signature-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.signature-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--ink-muted);
+  margin-bottom: 32px;
+}
+
+.signature-email {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: 12px;
+  transition: color 0.5s var(--ease-soft);
+}
+
+.signature-email:hover { color: var(--terra); }
+
+.signature-phone {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 36px;
+}
+
+.signature-links {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+}
+
+.signature-footer {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+}
+
+.signature-footer a {
+  transition: color 0.4s;
+}
+
+.signature-footer a:hover { color: var(--terra); }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .signature-content { padding: 24px; }
+  .signature-bg-logo { font-size: 80px; }
+}

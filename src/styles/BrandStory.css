@@ -1,0 +1,97 @@
+/* ═══════════════════════════════════════════════
+   SECTION 5: VIDEO FRAGMENT (Grain Overlay)
+   ═══════════════════════════════════════════════ */
+.video-fragment {
+  background: var(--ink);
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.video-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45) saturate(0.8);
+}
+
+/* CSS Grain / Noise Overlay */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px;
+  mix-blend-mode: overlay;
+}
+
+.video-content {
+  position: absolute;
+  top: 20%;
+  left: 34%;
+  transform: translateY(-50%);
+  width: 420px;
+  text-align: center;
+  z-index: 3;
+}
+
+.video-play {
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(252, 250, 248, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 32px;
+  cursor: pointer;
+  transition: border-color 0.6s var(--ease-soft), transform 0.6s var(--ease-soft);
+}
+
+.video-play:hover {
+  border-color: var(--oat);
+  transform: scale(1.1);
+}
+
+.video-play svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--oat);
+  margin-left: 3px;
+}
+
+.video-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--oat);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.video-caption {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(252, 250, 248, 0.82);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .video-content { padding: 24px; }
+}

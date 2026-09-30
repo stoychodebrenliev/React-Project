@@ -2,6 +2,7 @@ import RecipeCard from "../components/RecipeCard.jsx";
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient.js";
 import { Link } from "react-router";
+import "../styles/RecipesPage.css";
 
 export default function RecipesPage() {
     const [recipes, setRecipes] = useState([]);

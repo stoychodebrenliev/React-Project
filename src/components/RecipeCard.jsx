@@ -1,3 +1,6 @@
+import  "../styles/RecipeCard.css";
+
+
 export default function RecipeCard(props) {
     return (
         <div className="recipe-card">
