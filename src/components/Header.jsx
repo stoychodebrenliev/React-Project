@@ -25,7 +25,7 @@ export default function Header({ user }) {
                 <a href="/#signature" className={location.hash === "#signature" ? "active" : ""}>Contact</a>
 
                 {user ? (
-                    <button className="pill-nav" onClick={handleLogout}>Logout</button>
+                    <button onClick={handleLogout}>Logout</button>
                 ) : (
                     <>
                         <Link to="/login" className={location.pathname === "/login" ? "active" : ""}>Login</Link>

@@ -1,10 +1,30 @@
 import RecipeCard from "./RecipeCard.jsx";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import "../styles/Recipes.css";
+import { supabase } from "../lib/supabaseClient.js";
 
 export default function Recipes() {
     const trackRef = useRef(null);
+    const [recipes, setRecipes] = useState([]);
+
+    useEffect(() => {
+        async function getRecipes() {
+            const { data, error } = await supabase
+                .from("recipes")
+                .select("*")
+                .limit(6);
+
+            if (error) {
+                console.error("Error fetching recipes:", error);
+                return;
+            }
+
+            setRecipes(data);
+        }
+
+        getRecipes();
+    }, []);
 
     function scrollLeft() {
         trackRef.current.scrollBy({
@@ -29,36 +49,19 @@ export default function Recipes() {
 
             <div className="recipe-track" ref={trackRef}>
 
-                <RecipeCard
-                    imageUrl="/images/tarator.webp"
-                    alt="Minimalist living room with warm textures"
-                    label="Tarator - Traditional Bulgarian Cold Soup"
-                />
-
-                <RecipeCard
-                    imageUrl="/images/banitsa.jpg"
-                    alt="Handcrafted ceramic vases on a wooden shelf"
-                    label="Banitsa - Flaky Pastry with Yoghurt and Cheese"
-                />
-
-                <RecipeCard
-                    imageUrl="/images/bowl.webp"
-                    alt="Textile samples with natural fibers and muted colors"
-                    label="Berry Protein Bowl - A Healthy and Delicious Breakfast Option"
-                />
-
-                <RecipeCard
-                    imageUrl="/images/banana.jpg"
-                    alt="Craftsperson shaping wood in a sunlit workshop"
-                    label="Banana & Cottage Cheese Protein Shake - A Quick and Nutritious Post-Workout Drink"
-                />
-
-                <RecipeCard
-                    imageUrl="/images/smootie.jpg"
-                    alt="Cozy bedroom with layered bedding and soft lighting"
-                    label="Fruit Yoghurt Smoothie - A Refreshing and Creamy Beverage"
-                />
-
+                {recipes.map((recipe) => (
+                    <Link
+                        key={recipe.id}
+                        to={`/recipes/${recipe.id}`}
+                        className="recipe-link"
+                        >
+                            <RecipeCard
+                        imageUrl={recipe.image_url}
+                        alt={recipe.title}
+                        label={recipe.title}
+                    />
+                    </Link>
+                ))}
             </div>
 
             <div className="recipe-footer reveal">

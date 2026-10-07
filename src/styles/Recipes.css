@@ -94,6 +94,9 @@
 
 .recipe-arrow:hover svg { stroke: var(--oat); }
 
+.recipe-link {
+  flex: 0 0 340px;
+}
 
 
 /* ═══════════════════════════════════════════════

@@ -3,7 +3,7 @@ import { supabase } from "../lib/supabaseClient.js";
 import { useParams, useNavigate } from "react-router";
 import "../styles/RecipeDetails.css";
 
-export default function RecipeDetails() {
+export default function RecipeDetails({ user }) {
     const { id } = useParams();
     const navigate = useNavigate();
     const [recipe, setRecipe] = useState(null);
@@ -88,10 +88,14 @@ export default function RecipeDetails() {
                     </div>
 
                     <div className="recipe-actions">
-                        <button className="recipe-action-btn edit">Edit</button>
-                        <button className="recipe-action-btn delete" onClick={handleDelete}>
-                            Delete
-                        </button>
+                        {user && user.id === recipe.user_id && (
+                            <>
+                                <button className="recipe-action-btn edit">Edit</button>
+                                <button className="recipe-action-btn delete" onClick={handleDelete}>
+                                    Delete
+                                </button>
+                            </>
+                        )}
                         <button className="recipe-action-btn favorite">Add to Favorites</button>
                     </div>
 
