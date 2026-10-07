@@ -55,8 +55,45 @@
   display: flex;
   gap: 36px;
   margin: 10px 0 18px;
+}
+
+.recipe-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
   padding-bottom: 14px;
   border-bottom: 1px solid rgba(26, 23, 20, 0.15);
+}
+
+.recipe-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.recipe-actions button {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid var(--ink-soft);
+  border-radius: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+}
+
+.recipe-actions button.edit {
+  background: #478d2d;
+  color: #FFFF;
+}
+
+.recipe-actions button.delete {
+   background: #ae0d0d;
+  color: #FFFFFF;
+}
+
+.recipe-actions button.favorite {
+   background: #7e5525;
+  color: #FFFFFF;
 }
 
 .recipe-meta > div {
@@ -88,7 +125,9 @@
   margin: 0;
 }
 
+
 .recipe-list {
   white-space: pre-line;
   line-height: 1.5;
 }
+

@@ -44,25 +44,37 @@ export default function RecipeDetails() {
             </div>
 
             <div className="recipe-details-content">
-                <h1>{recipe.title}</h1>
-
-                <div className="recipe-meta">
-                    <div>
-                        <span className="recipe-meta-label">Prep Time</span>
-                        <span className="recipe-meta-value">{recipe.prep_time} min</span>
-                    </div>
+                <div className="recipe-top">
 
                     <div>
-                        <span className="recipe-meta-label">Servings</span>
-                        <span className="recipe-meta-value">{recipe.servings}</span>
+                        <h1>{recipe.title}</h1>
+
+                        <div className="recipe-meta">
+                            <div>
+                                <span className="recipe-meta-label">Prep Time</span>
+                                <span className="recipe-meta-value">
+                                    {recipe.prep_time} min
+                                </span>
+                            </div>
+
+                            <div>
+                                <span className="recipe-meta-label">Servings</span>
+                                <span className="recipe-meta-value">
+                                    {recipe.servings}
+                                </span>
+                            </div>
+                        </div>
                     </div>
+
+                    <div className="recipe-actions">
+                        <button className="recipe-action-btn edit">Edit</button>
+                        <button className="recipe-action-btn delete">Delete</button>
+                        <button className="recipe-action-btn favorite">Add to Favorites</button>
+                    </div>
+
                 </div>
 
-                <div className="recipe-actions">
-                    <button className="recipe-action-btn">Edit Recipe</button>
-                    <button className="recipe-action-btn">Delete Recipe</button>
-                    <button className="recipe-action-btn">Add to Favorites</button>
-                </div>
+
 
                 <h2>Description</h2>
                 <p>{recipe.description}</p>
