@@ -22,3 +22,5 @@
 - [x] Connect Table to React
 - [x] Fix Scroll BTN for Recipes and fix Navigation Items color on Click
 - [x] Split the CSS into separate files for better organization
+- [x] Create and Style Edit, Delete and Add to Fav. btns
+- [x] Make Delete btn functional and fix RLS Policy in Supabase 
