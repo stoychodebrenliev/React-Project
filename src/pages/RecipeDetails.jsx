@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient.js";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import "../styles/RecipeDetails.css";
 
 export default function RecipeDetails() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [recipe, setRecipe] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -26,6 +27,26 @@ export default function RecipeDetails() {
 
         getRecipe();
     }, [id]);
+
+    async function handleDelete() {
+        const confirmDelete = window.confirm("Are you sure you want to delete this recipe?");
+        
+        if (!confirmDelete) {
+            return;
+        }
+
+        const { error } = await supabase
+            .from("recipes")
+            .delete()
+            .eq("id", id);
+
+        if (error) {
+            setErrorMessage("Could not delete this recipe.");
+            return;
+        }
+
+        navigate("/recipes");
+    }
 
     if (errorMessage) {
         return <p> {errorMessage} </p>
@@ -68,7 +89,9 @@ export default function RecipeDetails() {
 
                     <div className="recipe-actions">
                         <button className="recipe-action-btn edit">Edit</button>
-                        <button className="recipe-action-btn delete">Delete</button>
+                        <button className="recipe-action-btn delete" onClick={handleDelete}>
+                            Delete
+                        </button>
                         <button className="recipe-action-btn favorite">Add to Favorites</button>
                     </div>
 
