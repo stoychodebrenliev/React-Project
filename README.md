@@ -24,3 +24,6 @@
 - [x] Split the CSS into separate files for better organization
 - [x] Create and Style Edit, Delete and Add to Fav. btns
 - [x] Make Delete btn functional and fix RLS Policy in Supabase 
+- [x] Fix css for images in the Details Page
+- [x] Create more Recipes from 2 different Users
+- [x] Fix buttons visibility depending on logged in User
