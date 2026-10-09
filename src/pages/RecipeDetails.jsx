@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { supabase } from "../lib/supabaseClient.js";
 import { useParams, useNavigate } from "react-router";
 import "../styles/RecipeDetails.css";
+import { UserContext } from "../context/UserContext.jsx";
 
-export default function RecipeDetails({ user }) {
+export default function RecipeDetails() {
+    const user = useContext(UserContext);
     const { id } = useParams();
     const navigate = useNavigate();
     const [recipe, setRecipe] = useState(null);

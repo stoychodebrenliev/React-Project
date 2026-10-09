@@ -1,8 +1,11 @@
 import { Link, useLocation } from "react-router"
 import { supabase } from "../lib/supabaseClient";
 import "../styles/Header.css";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext.jsx";
 
-export default function Header({ user }) {
+export default function Header() {
+    const user = useContext(UserContext);
     const location = useLocation();
 
     async function handleLogout() {

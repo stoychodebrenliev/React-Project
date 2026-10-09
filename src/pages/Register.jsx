@@ -1,9 +1,11 @@
 import { Link, useNavigate, Navigate } from "react-router"
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { supabase } from "../lib/supabaseClient";
 import "../styles/auth.css";
+import { UserContext } from "../context/UserContext.jsx";
 
-export default function Register({user}) {
+export default function Register() {
+    const user = useContext(UserContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");

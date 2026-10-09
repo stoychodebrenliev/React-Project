@@ -14,6 +14,8 @@ import RecipesPage from './pages/RecipesPage.jsx'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import RecipeDetails from './pages/RecipeDetails.jsx'
+
+import { UserContext } from "./context/UserContext.jsx";
 	
 function App() {
 	const [user, setUser] = useState(null);
@@ -39,8 +41,8 @@ function App() {
 		};
 	}, [])
 	return (
-		<div>
-			<Header user={user} />
+		<UserContext.Provider value = {user}>
+			<Header />
 
 			<Routes>
 				<Route
@@ -67,12 +69,12 @@ function App() {
 				/>
 
 				<Route path="/recipes" element={<RecipesPage />} />
-				<Route path="/login" element={<Login user={user} />} />
-				<Route path="/register" element={<Register user={user} />} />
-				<Route path="/recipes/:id" element={<RecipeDetails user={user} />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
+				<Route path="/recipes/:id" element={<RecipeDetails />} />
 			</Routes>
 
-		</div>
+		</UserContext.Provider>
 	)
 }
 
