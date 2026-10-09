@@ -1,29 +1,11 @@
+import useRecipes from "../hooks/useRecipes.js";
 import RecipeCard from "../components/RecipeCard.jsx";
-import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabaseClient.js";
 import { Link } from "react-router";
 import "../styles/RecipesPage.css";
 
 export default function RecipesPage() {
-    const [recipes, setRecipes] = useState([]);
 
-    useEffect(() => {
-        async function getRecipes() {
-            const { data, error } = await supabase
-            .from("recipes")
-            .select("*");
-
-            if (error) {
-                console.log(error.message);
-                return;
-            } 
-
-            console.log(data);
-            setRecipes(data);
-        };
-
-        getRecipes();
-    }, []);
+    const { recipes, error } = useRecipes();
 
     return (
         <main className="recipes-page">

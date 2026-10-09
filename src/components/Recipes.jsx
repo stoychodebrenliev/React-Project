@@ -1,30 +1,13 @@
 import RecipeCard from "./RecipeCard.jsx";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import useRecipes from "../hooks/useRecipes.js";
 import { Link } from "react-router";
 import "../styles/Recipes.css";
 import { supabase } from "../lib/supabaseClient.js";
 
 export default function Recipes() {
     const trackRef = useRef(null);
-    const [recipes, setRecipes] = useState([]);
-
-    useEffect(() => {
-        async function getRecipes() {
-            const { data, error } = await supabase
-                .from("recipes")
-                .select("*")
-                .limit(6);
-
-            if (error) {
-                console.error("Error fetching recipes:", error);
-                return;
-            }
-
-            setRecipes(data);
-        }
-
-        getRecipes();
-    }, []);
+    const {recipes, error} = useRecipes(6);
 
     function scrollLeft() {
         trackRef.current.scrollBy({
