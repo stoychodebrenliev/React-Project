@@ -34,3 +34,5 @@
 - [x] Show current values on popup window
 - [x] Create Save and Cancel buttons
 - [x] Create RLS Policy for Update in Supabase
+- [x] Create favorites table in Supabase
+- [x] Make Relations to auth.users.id and to recipes table
