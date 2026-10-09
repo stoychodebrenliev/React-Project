@@ -10,6 +10,16 @@ export default function RecipeDetails() {
     const navigate = useNavigate();
     const [recipe, setRecipe] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
+    const [popUp, setPopUp] = useState(false);
+    const [editRecipe, setEditRecipe] = useState({
+        title: "",
+        description: "",
+        ingredients: "",
+        instructions: "",
+        prep_time: "",
+        servings: "",
+        image_url: ""
+    });
 
     useEffect(() => {
         async function getRecipe() {
@@ -57,6 +67,28 @@ export default function RecipeDetails() {
     if (!recipe) {
         return <p> Loading... </p>
     }
+
+    function openEditPopUp() {
+        setEditRecipe({
+            title: recipe.title,
+            description: recipe.description,
+            ingredients: recipe.ingredients,
+            instructions: recipe.instructions, 
+            prep_time: recipe.prep_time,
+            servings: recipe.servings,
+            image_url: recipe.image_url
+        });
+        setPopUp(true);
+    }
+
+    function handleEditChange(e) {
+        const { name, value } = e.target;
+        setEditRecipe((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    }
+
     return (
         <main className="recipe-details">
             <div className="recipe-details-image">
@@ -92,7 +124,10 @@ export default function RecipeDetails() {
                     <div className="recipe-actions">
                         {user && user.id === recipe.user_id && (
                             <>
-                                <button className="recipe-action-btn edit">Edit</button>
+
+                                <button className="recipe-action-btn edit" onClick={openEditPopUp}>
+                                    Edit
+                                </button>
                                 <button className="recipe-action-btn delete" onClick={handleDelete}>
                                     Delete
                                 </button>
@@ -115,6 +150,79 @@ export default function RecipeDetails() {
                 <p className="recipe-list">{recipe.instructions}</p>
 
             </div>
+            {popUp && (
+            <div className="edit-modal">
+                <div className="edit-modal-content">
+                    <h2>Edit Recipe</h2>
+
+                    <form>
+                        <label htmlFor="edit-title">Title</label>
+                        <input
+                            type="text"
+                            id="edit-title"
+                            name="title"
+                            value={editRecipe.title}
+                            onChange={handleEditChange}
+                        />
+
+                        <label htmlFor="edit-description">Description</label>
+                        <textarea
+                            id="edit-description"
+                            name="description"
+                            value={editRecipe.description}
+                            onChange={handleEditChange}
+                        />
+
+                        <label htmlFor="edit-ingredients">Ingredients</label>
+                        <textarea
+                            id="edit-ingredients"
+                            name="ingredients"
+                            value={editRecipe.ingredients}
+                            onChange={handleEditChange}
+                        />
+
+                        <label htmlFor="edit-instructions">Instructions</label>
+                        <textarea
+                            id="edit-instructions"
+                            name="instructions"
+                            value={editRecipe.instructions}
+                            onChange={handleEditChange}
+                        />
+
+                        <label htmlFor="edit-prep-time">Prep Time (minutes)</label>
+                        <input
+                            type="number"
+                            id="edit-prep-time"
+                            name="prep_time"
+                            value={editRecipe.prep_time}
+                            onChange={handleEditChange}
+                        />
+
+                        <label htmlFor="edit-servings">Servings</label>
+                        <input
+                            type="number"
+                            id="edit-servings"
+                            name="servings"
+                            value={editRecipe.servings}
+                            onChange={handleEditChange}
+                        />
+
+                        <label htmlFor="edit-image-url">Image URL</label>
+                        <input
+                            type="url"
+                            id="edit-image-url"
+                            name="image_url"
+                            value={editRecipe.image_url}
+                            onChange={handleEditChange}
+                        />
+                    </form>
+
+                    <button onClick={() => setPopUp(false)}>
+                        Close
+                    </button>
+                </div>
+            </div>
+        )}
         </main>
     );
 }
