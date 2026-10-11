@@ -36,3 +36,4 @@
 - [x] Create RLS Policy for Update in Supabase
 - [x] Create favorites table in Supabase
 - [x] Make Relations to auth.users.id and to recipes table
+-[x] Implement add to Favorites Button 
