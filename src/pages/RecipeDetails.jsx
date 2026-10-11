@@ -20,6 +20,7 @@ export default function RecipeDetails() {
         servings: "",
         image_url: ""
     });
+    const [favoriteId, setFavoriteId] = useState(null);
 
     useEffect(() => {
         async function getRecipe() {
@@ -39,6 +40,65 @@ export default function RecipeDetails() {
 
         getRecipe();
     }, [id]);
+
+    useEffect(() => {
+        async function checkFavorite() {
+            if (!user || !recipe) {
+                setFavoriteId(null);
+                return;
+            }
+
+            const { data, error } = await supabase
+                .from("favorites")
+                .select("id")
+                .eq("user_id", user.id)
+                .eq("recipe_id", id)
+                .maybeSingle();
+
+            if (error) {
+                console.log("Could not check favorite status:", error);
+                return;
+            }
+
+            setFavoriteId(data?.id ?? null);
+        }
+
+        checkFavorite();
+    }, [user, recipe]);
+
+    async function handleFavorite() {
+        if (!user) {
+            setErrorMessage("You must be logged in to favorite a recipe.");
+            return;
+        }
+
+        const { data, error } = await supabase
+            .from("favorites")
+            .insert({ user_id: user.id, recipe_id: recipe.id })
+            .select()
+            .single();
+
+        if (error) {
+            console.log("Could not add to favorites:", error);
+            return;
+        }
+
+        setFavoriteId(data.id);
+    }
+
+    async function handleUnfavorite() {
+        const {error} = await supabase
+        .from("favorites")
+        .delete()
+        .eq("id", favoriteId);
+
+    if(error) {
+        console.log("Could not remove from favorites:", error);
+        return;
+    } 
+
+    setFavoriteId(null);
+}
 
     async function handleDelete() {
         const confirmDelete = window.confirm("Are you sure you want to delete this recipe?");
@@ -152,7 +212,16 @@ export default function RecipeDetails() {
                                 </button>
                             </>
                         )}
-                        <button className="recipe-action-btn favorite">Add to Favorites</button>
+                        
+                        {favoriteId ? (
+                            <button className="recipe-action-btn favorite" onClick={handleUnfavorite}>
+                                Remove from Favorites
+                            </button>
+                        ) : (
+                            <button className="recipe-action-btn favorite" onClick={handleFavorite}>
+                                Add to Favorites
+                            </button>
+                        )}
                     </div>
 
                 </div>
