@@ -36,4 +36,8 @@
 - [x] Create RLS Policy for Update in Supabase
 - [x] Create favorites table in Supabase
 - [x] Make Relations to auth.users.id and to recipes table
--[x] Implement add to Favorites Button 
+- [x] Implement add to Favorites Button 
+- [x] Create Favorites Page
+- [x] Show Favorites Btn on Header Nav
+- [x] Set same classes to FavoritesPage as RecipesPage so that they have almost the same css 
+- [x] Make better style for the edit popup window
