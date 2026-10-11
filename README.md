@@ -27,7 +27,7 @@
 - [x] Fix css for images in the Details Page
 - [x] Create more Recipes from 2 different Users
 - [x] Fix buttons visibility depending on logged in User
-- Implement Edit button for Recipes
+- [x] Implement Edit button for Recipes
 - [x] Create a popup window
 - [x] Style popup window
 - [x] Create the form inside RecipeDetails
