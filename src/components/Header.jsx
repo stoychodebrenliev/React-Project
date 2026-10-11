@@ -28,13 +28,17 @@ export default function Header() {
                 <a href="/#signature" className={location.hash === "#signature" ? "active" : ""}>Contact</a>
 
                 {user ? (
+                    <>
+                    <Link to="/favorites" className={location.pathname === "/favorites" ? "active" : ""}>Favorites</Link>
                     <button onClick={handleLogout}>Logout</button>
+                    </>
                 ) : (
                     <>
                         <Link to="/login" className={location.pathname === "/login" ? "active" : ""}>Login</Link>
                         <Link to="/register" className={location.pathname === "/register" ? "active" : ""}>Register</Link>
                     </>
                 )}
+                
             </nav>
 
             {/* <!-- ═══════ MOBILE ═══════ --> */}
@@ -48,14 +52,18 @@ export default function Header() {
                 <a href="/#video" className={location.hash === "#video" ? "active" : ""}>Our Story</a>
                 <a href="/#signature" className={location.hash === "#signature" ? "active" : ""}>Contact</a>
 
-                {user ? (
+                 {user ? (
+                    <>
+                    <Link to="/favorites" className={location.pathname === "/favorites" ? "active" : ""}>Favorites</Link>
                     <button onClick={handleLogout}>Logout</button>
+                    </>
                 ) : (
                     <>
                         <Link to="/login" className={location.pathname === "/login" ? "active" : ""}>Login</Link>
                         <Link to="/register" className={location.pathname === "/register" ? "active" : ""}>Register</Link>
                     </>
                 )}
+                
             </nav>
         </>
     )

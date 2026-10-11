@@ -14,6 +14,7 @@ import RecipesPage from './pages/RecipesPage.jsx'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import RecipeDetails from './pages/RecipeDetails.jsx'
+import FavoritesPage from './pages/FavoritesPage.jsx'
 
 import { UserContext } from "./context/UserContext.jsx";
 	
@@ -72,6 +73,7 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/recipes/:id" element={<RecipeDetails />} />
+				<Route path="/favorites" element={<FavoritesPage />} />
 			</Routes>
 
 		</UserContext.Provider>
