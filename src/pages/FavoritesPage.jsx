@@ -3,6 +3,7 @@ import { UserContext } from "../context/UserContext.jsx";
 import { supabase } from "../lib/supabaseClient.js";
 import { Link } from "react-router";
 import RecipeCard from "../components/RecipeCard.jsx";
+import "../styles/RecipesPage.css";
 
 export default function FavoritesPage() {
     const user = useContext(UserContext);
@@ -36,12 +37,18 @@ export default function FavoritesPage() {
     }, [user]);
 
     return (
-        <div>
-            <h1>My Favorites</h1>
+        <main className="recipes-page">
+            <div className="recipes-page-header">
+                <span className="recipes-page-eyebrow">Saved Recipes</span>
+                <h1>My Favorites</h1>
+                <p className="recipes-page-description">
+                    Here are the recipes you've saved as favorites. Click on a recipe to view its details or remove it from your favorites.
+                </p>
+            </div>
             {favorites.length === 0 ? (
                 <p>You have no favorite recipes yet. Browse our <Link to="/recipes">recipes</Link> and add some!</p>
             ) : (
-                <div>
+                <div className="recipes-page-grid">
                     {favorites.map((recipe) => (
                         <Link
                             key={recipe.id}
@@ -56,6 +63,6 @@ export default function FavoritesPage() {
                     ))}
                 </div>
             )}
-        </div>
+        </main>
     );
 }

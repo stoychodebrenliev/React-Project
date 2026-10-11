@@ -239,10 +239,11 @@ export default function RecipeDetails() {
 
             </div>
             {popUp && (
-                <div className="edit-modal">
-                    <div className="edit-modal-content">
+                <div className="edit-modal" onClick={() => setPopUp(false)}>
+                    <div className="edit-modal-content" onClick={(e) => e.stopPropagation()}>
                         <h2>Edit Recipe</h2>
 
+                        <div className="edit-modal-scroll">
                         <form onSubmit={handleUpdate}>
                             <label htmlFor="edit-title">Title</label>
                             <input
@@ -303,13 +304,15 @@ export default function RecipeDetails() {
                                 value={editRecipe.image_url}
                                 onChange={handleEditChange}
                             />
+                            <div className="edit-modal-buttons">
+                            <button type="submit" className="edit-save-btn">Save</button>
 
-                            <button type="button" onClick={() => setPopUp(false)}>
+                            <button type="button" className="edit-close-btn" onClick={() => setPopUp(false)}>
                                 Close
                             </button>
-                            <button type="submit">Save</button>
+                          </div>
                         </form>
-
+                        </div>
 
                     </div>
                 </div>
