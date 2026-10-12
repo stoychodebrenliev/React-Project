@@ -41,3 +41,4 @@
 - [x] Show Favorites Btn on Header Nav
 - [x] Set same classes to FavoritesPage as RecipesPage so that they have almost the same css 
 - [x] Make better style for the edit popup window
+- [x] Create CreateRecipe Page
