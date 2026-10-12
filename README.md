@@ -43,3 +43,5 @@
 - [x] Make better style for the edit popup window
 - [x] Create CreateRecipe Page nad make Route in App.jsx
 - [x] Create the Form and Style it
+- [x] Implement handleSubmit function
+- [x] Create RLS Insert policy in Supabase
