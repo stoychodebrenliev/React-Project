@@ -1,0 +1,72 @@
+.create-recipe-page {
+    min-height: 100vh;
+    padding: 120px 20px 40px;
+}
+
+.create-recipe-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--oat-mid);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.create-recipe-container h1 {
+    font-family: 'Manrope', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.create-recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: 'Manrope', sans-serif;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.form-group textarea {
+    resize: none;
+    min-height: 80px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border: 1.5px solid var(--terra);
+}
+
+.create-recipe-container button {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: var(--terra);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+}
