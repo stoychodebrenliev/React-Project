@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../context/UserContext.jsx";
+import { supabase } from "../lib/supabaseClient";
 import "../styles/CreateRecipe.css";
 
 export default function CreateRecipe() {
+    const user = useContext(UserContext);
 
     const [newRecipe, setNewRecipe] = useState({
         title: "",
@@ -21,10 +24,29 @@ export default function CreateRecipe() {
         }));
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        console.log("New Recipe Submitted:", newRecipe);
-        // Here you would typically send the new recipe to your backend or database
+
+        if(!user) {
+            return;
+        }
+        const {data, error} = await supabase
+            .from("recipes")
+            .insert(
+                { 
+                    ...newRecipe,
+                    prep_time: Number(newRecipe.prep_time),
+                    servings: Number(newRecipe.servings),
+                    user_id: user.id
+                })
+                .select()
+                .single();
+
+        if (error) {
+            console.error("Error creating recipe:", error);
+            return;
+        }
+        console.log("Recipe created successfully:", data);
     }
 
     return (
