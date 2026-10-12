@@ -1,10 +1,12 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import { supabase } from "../lib/supabaseClient";
+import { useNavigate } from "react-router";
 import "../styles/CreateRecipe.css";
 
 export default function CreateRecipe() {
     const user = useContext(UserContext);
+    const navigate = useNavigate();
 
     const [newRecipe, setNewRecipe] = useState({
         title: "",
@@ -46,7 +48,8 @@ export default function CreateRecipe() {
             console.error("Error creating recipe:", error);
             return;
         }
-        console.log("Recipe created successfully:", data);
+
+        navigate(`/recipes/${data.id}`);
     }
 
     return (
