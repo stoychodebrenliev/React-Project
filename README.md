@@ -41,4 +41,5 @@
 - [x] Show Favorites Btn on Header Nav
 - [x] Set same classes to FavoritesPage as RecipesPage so that they have almost the same css 
 - [x] Make better style for the edit popup window
-- [x] Create CreateRecipe Page
+- [x] Create CreateRecipe Page nad make Route in App.jsx
+- [x] Create the Form and Style it
