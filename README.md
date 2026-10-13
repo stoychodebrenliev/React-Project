@@ -45,3 +45,5 @@
 - [x] Create the Form and Style it
 - [x] Implement handleSubmit function
 - [x] Create RLS Insert policy in Supabase
+- [x] Error Handling
+- [x] Add ProtectedRoutes for createRecipe and favoritesPage
