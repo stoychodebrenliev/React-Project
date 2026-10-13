@@ -6,6 +6,8 @@ import RecipeCard from "../components/RecipeCard";
 export default function MyRecipePage() {
     const { userId } = useParams();
     const [recipes, setRecipes] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [errorMessage, setErrorMessage] = useState("")
 
     useEffect(() => {
         async function getMyRecipes() {
@@ -15,15 +17,25 @@ export default function MyRecipePage() {
                 .eq("user_id", userId);
 
             if (error) {
-                console.log("Could not load recipes:", error);
+                setErrorMessage("Could not load recipes.");
+                setLoading(false);
                 return;
             }
 
             setRecipes(data);
+            setLoading(false);
         }
 
         getMyRecipes();
     }, [userId]);
+
+    if(loading) {
+        return <p>Loading...</p>
+    }
+
+    if(errorMessage) {
+        return <p>{errorMessage}</p>
+    }
 
     return (
         <main className="recipes-page">
@@ -31,7 +43,7 @@ export default function MyRecipePage() {
                 <h1>My Recipes</h1>
             </div>
             {recipes.length === 0 ? (
-                <p>You haven't created any recipes yes</p>
+                <p>You haven't created any recipes yet.</p>
             ) : (
              <div className="recipes-page-grid">
 
