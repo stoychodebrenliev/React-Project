@@ -47,3 +47,4 @@
 - [x] Create RLS Insert policy in Supabase
 - [x] Error Handling
 - [x] Add ProtectedRoutes for createRecipe and favoritesPage
+- [x] Create MyRecipes Page
