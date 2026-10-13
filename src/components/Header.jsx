@@ -43,6 +43,7 @@ export default function Header() {
                     <>
                     <Link to="/favorites" className={location.pathname === "/favorites" ? "active" : ""}>Favorites</Link>
                     <Link to="/create-recipe" className={location.pathname === "/create-recipe" ? "active" : ""}>Create Recipe</Link>
+                    <Link to={`/users/${user.id}/recipes`} className={location.pathname === `/users/${user.id}/recipes` ? "active" : ""}>My Recipes</Link>
                     <button onClick={handleLogout}>Logout</button>
                     </>
                 ) : (

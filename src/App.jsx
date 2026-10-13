@@ -16,6 +16,7 @@ import Register from './pages/Register.jsx'
 import RecipeDetails from './pages/RecipeDetails.jsx'
 import FavoritesPage from './pages/FavoritesPage.jsx'
 import CreateRecipe from './pages/CreateRecipe.jsx'
+import MyRecipePage from './pages/MyRecipePage.jsx'
 
 import { UserContext } from "./context/UserContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
@@ -86,6 +87,12 @@ function App() {
 				<Route path="/create-recipe" element={
 					<ProtectedRoute authLoading={authLoading}>
 						<CreateRecipe />
+					</ProtectedRoute>
+				} 
+			/>
+				<Route path="/users/:userId/recipes" element={
+					<ProtectedRoute authLoading={authLoading}>
+						<MyRecipePage />
 					</ProtectedRoute>
 				} 
 			/>
