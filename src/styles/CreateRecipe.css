@@ -72,3 +72,22 @@
     font-family: 'Manrope', sans-serif;
     font-size: 14px;
 }
+
+.error-label {
+    color: var(--terra);
+}
+
+.form-group .error-input {
+    border: 1px solid var(--terra);
+}
+
+.field-error {
+    margin-top: 5px;
+    color: var(--terra);
+    font-size: 12px;
+}
+.form-group .error-input:focus {
+    outline: none;
+    border: 1px solid var(--terra);
+    box-shadow: 0 0 0 2px var(--terra-light);
+}
