@@ -18,15 +18,18 @@ import FavoritesPage from './pages/FavoritesPage.jsx'
 import CreateRecipe from './pages/CreateRecipe.jsx'
 
 import { UserContext } from "./context/UserContext.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 	
 function App() {
 	const [user, setUser] = useState(null);
+	const [authLoading, setAuthLoading] = useState(true);
 
 	useEffect(() => {
 		async function getUser() {
 			const { data } = await supabase.auth.getSession();
 			console.log("Session data:", data);
 			setUser(data.session?.user ?? null);
+			setAuthLoading(false);
 		}
 
 		getUser();
@@ -74,8 +77,18 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/recipes/:id" element={<RecipeDetails />} />
-				<Route path="/favorites" element={<FavoritesPage />} />
-				<Route path="/create-recipe" element={<CreateRecipe />} />
+				<Route path="/favorites" element={
+					<ProtectedRoute authLoading={authLoading}>
+						<FavoritesPage />
+					</ProtectedRoute>
+				} 
+			/>
+				<Route path="/create-recipe" element={
+					<ProtectedRoute authLoading={authLoading}>
+						<CreateRecipe />
+					</ProtectedRoute>
+				} 
+			/>
 			</Routes>
 
 		</UserContext.Provider>
