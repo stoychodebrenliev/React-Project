@@ -1,14 +1,15 @@
 .create-recipe-page {
     min-height: 100vh;
     padding: 120px 20px 40px;
+    background-color: var(--oat);
 }
 
 .create-recipe-container {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    background-color: var(--oat-mid);
-    border-radius: 10px;
+    background-color: var(--white);
+    border-radius: 28px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
 }
@@ -40,11 +41,12 @@
 
 .form-group input,
 .form-group textarea {
+    background-color: var(--oat);
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 12px;
     font-size: 13px;
 }
 
@@ -56,16 +58,16 @@
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border: 1.5px solid var(--terra);
+    border: 1.2px solid var(--terra);
 }
 
 .create-recipe-container button {
     align-self: center;
-    padding: 10px 20px;
+    padding: 10px 30px;
     background-color: var(--terra);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
     font-family: 'Manrope', sans-serif;
     font-size: 14px;
