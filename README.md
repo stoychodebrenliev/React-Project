@@ -384,7 +384,7 @@ Supabase already provides the hosted authentication and database backend.
 
 ### Live Demo
 
-`LIVE_DEMO_URL`
+https://react-project-omega-teal.vercel.app
 
 ### Repository
 
