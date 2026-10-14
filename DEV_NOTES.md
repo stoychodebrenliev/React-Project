@@ -1,0 +1,49 @@
+## Steps
+- [x] Install vite react project
+- [x] Clean up the project 
+- [x] Add assets to public folder
+- [x] Add html to App component
+- [x] Convert html to jsx
+- [x] Extract Components
+- [x] Extract Recipes in Components
+- [x] Rename Components based on my idea
+- [x] Fix All Sections based ot the new Website
+- [x] Create Login and Register Pages
+- [x] Style Login and Register Pages
+- [x] Build Recipes Page
+- [x] Setup Supabase Project and Connect it to my React Project
+- [x] Register and Login Flow
+- [x] Stay Logged in
+- [x] Logout Function 
+- [x] Authentication and Route Protection
+- [x] Create Recipes Table in Supabase and Test it
+- [x] Connect Table to React
+- [x] Fix Scroll BTN for Recipes and fix Navigation Items color on Click
+- [x] Split the CSS into separate files for better organization
+- [x] Create and Style Edit, Delete and Add to Fav. btns
+- [x] Make Delete btn functional and fix RLS Policy in Supabase 
+- [x] Fix css for images in the Details Page
+- [x] Create more Recipes from 2 different Users
+- [x] Fix buttons visibility depending on logged in User
+- [x] Implement Edit button for Recipes
+- [x] Create a popup window
+- [x] Style popup window
+- [x] Create the form inside RecipeDetails
+- [x] Show current values on popup window
+- [x] Create Save and Cancel buttons
+- [x] Create RLS Policy for Update in Supabase
+- [x] Create favorites table in Supabase
+- [x] Make Relations to auth.users.id and to recipes table
+- [x] Implement add to Favorites Button 
+- [x] Create Favorites Page
+- [x] Show Favorites Btn on Header Nav
+- [x] Set same classes to FavoritesPage as RecipesPage so that they have almost the same css 
+- [x] Make better style for the edit popup window
+- [x] Create CreateRecipe Page nad make Route in App.jsx
+- [x] Create the Form and Style it
+- [x] Implement handleSubmit function
+- [x] Create RLS Insert policy in Supabase
+- [x] Error Handling
+- [x] Add ProtectedRoutes for createRecipe and favoritesPage
+- [x] Create MyRecipes Page
+- [x] Error Handling for all Pages that need it
