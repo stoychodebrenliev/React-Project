@@ -21,6 +21,7 @@ export default function RecipeDetails() {
         image_url: ""
     });
     const [favoriteId, setFavoriteId] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function getRecipe() {
@@ -32,10 +33,12 @@ export default function RecipeDetails() {
 
             if (error) {
                 setErrorMessage("Could not load this recipe.");
+                setLoading(false);
                 return;
             }
 
             setRecipe(data);
+            setLoading(false);
         }
 
         getRecipe();
@@ -120,13 +123,6 @@ export default function RecipeDetails() {
         navigate("/recipes");
     }
 
-    if (errorMessage) {
-        return <p> {errorMessage} </p>
-    }
-
-    if (!recipe) {
-        return <p> Loading... </p>
-    }
 
     async function handleUpdate(e) {
         e.preventDefault();
@@ -166,6 +162,18 @@ export default function RecipeDetails() {
             ...prev,
             [name]: value
         }));
+    }
+
+    if (loading){
+        return <p>Loading...</p>
+    }
+
+    if(errorMessage) {
+        return <p>{errorMessage}</p>
+    }
+
+    if(!recipe) {
+        return <p>Recipe not found.</p>
     }
 
     return (

@@ -18,6 +18,7 @@ export default function CreateRecipe() {
         servings: "",
         image_url: "",
     });
+    const [submitting, setSubmitting] = useState(false);
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -81,7 +82,12 @@ export default function CreateRecipe() {
             .single();
 
         if (error) {
-            console.error("Error creating recipe:", error);
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                submit: "Could not create recipe.Please try again."
+            }));
+
+            setSubmitting(false);
             return;
         }
 
@@ -190,8 +196,12 @@ export default function CreateRecipe() {
                             <span className="field-error">{errors.image_url}</span>
                         )}
                     </div>
+                    {errors.submit && (
+                        <p className="field-error">{errors.submit}</p>
+                    )}
+                    
                     <button type="submit">Create Recipe</button>
-
+                    
                 </form>
             </div>
         </main>
