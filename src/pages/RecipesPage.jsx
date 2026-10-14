@@ -5,8 +5,16 @@ import "../styles/RecipesPage.css";
 
 export default function RecipesPage() {
 
-    const { recipes, error } = useRecipes();
+    const { recipes, error, loading } = useRecipes();
 
+    if(loading) {
+        return <p>Loading...</p>
+    }
+
+    if(error) {
+        return <p>Could not load recipes.</p>
+    }
+    
     return (
         <main className="recipes-page">
             <div className="recipes-page-header">

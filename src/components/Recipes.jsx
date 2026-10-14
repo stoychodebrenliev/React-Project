@@ -7,8 +7,9 @@ import { supabase } from "../lib/supabaseClient.js";
 
 export default function Recipes() {
     const trackRef = useRef(null);
-    const {recipes, error} = useRecipes(6);
+    const {recipes, error, loading} = useRecipes(6);
 
+    
     function scrollLeft() {
         trackRef.current.scrollBy({
             left: -500,
@@ -21,6 +22,14 @@ export default function Recipes() {
             left: 500,
             behavior: "smooth",
         });
+    }
+
+    if(loading) {
+        return <p>Loading...</p>
+    }
+
+    if(error) {
+        return <p>Could not load recipes.</p>
     }
 
     return (

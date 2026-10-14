@@ -8,29 +8,47 @@ import "../styles/RecipesPage.css";
 export default function FavoritesPage() {
     const user = useContext(UserContext);
     const [favorites, setFavorites] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         async function fetchFavorites() {
-            if (user) {
-                const { data } = await supabase
-                    .from("favorites")
-                    .select("recipe_id")
-                    .eq("user_id", user.id);
-
-                const favoriteRecipeIds = data.map((fav) => fav.recipe_id);
-
-                if (favoriteRecipeIds.length === 0) {
-                    setFavorites([]);
-                    return;
-                }
-
-                const { data: recipes } = await supabase
-                    .from("recipes")
-                    .select("*")
-                    .in("id", favoriteRecipeIds);
-
-                setFavorites(recipes);
+            if (!user) {
+                setLoading(false);
+                return;
             }
+            const { data, error } = await supabase
+                .from("favorites")
+                .select("recipe_id")
+                .eq("user_id", user.id);
+
+            if (error) {
+                setErrorMessage("Could not load your favorites.");
+                setLoading(false);
+                return;
+            }
+
+            const favoriteRecipeIds = data.map((fav) => fav.recipe_id);
+
+            if (favoriteRecipeIds.length === 0) {
+                setFavorites([]);
+                setLoading(false);
+                return;
+            }
+
+            const { data: recipes, error: recipesError } = await supabase
+                .from("recipes")
+                .select("*")
+                .in("id", favoriteRecipeIds);
+
+            if (recipesError) {
+                setErrorMessage("Could not load your favorite recipes.");
+                setLoading(false);
+                return;
+            }
+
+            setFavorites(recipes);
+            setLoading(false);
         }
 
         fetchFavorites();
@@ -53,13 +71,13 @@ export default function FavoritesPage() {
                         <Link
                             key={recipe.id}
                             to={`/recipes/${recipe.id}`}
-                    >
-                        <RecipeCard
-                            imageUrl={recipe.image_url}
-                            alt={recipe.title}
-                            label={recipe.title}
-                        />
-                    </Link>
+                        >
+                            <RecipeCard
+                                imageUrl={recipe.image_url}
+                                alt={recipe.title}
+                                label={recipe.title}
+                            />
+                        </Link>
                     ))}
                 </div>
             )}

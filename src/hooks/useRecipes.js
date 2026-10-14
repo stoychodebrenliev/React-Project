@@ -4,6 +4,7 @@ import { supabase } from "../lib/supabaseClient.js";
 export default function useRecipes(limit) {
     const [recipes, setRecipes] = useState([]);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function getRecipes() {
@@ -19,8 +20,10 @@ export default function useRecipes(limit) {
 
             if (queryError) {
                 setError(queryError);
+                setLoading(false);
             } else {
                 setRecipes(data);
+                setLoading(false);
             }
         }
 
@@ -28,5 +31,5 @@ export default function useRecipes(limit) {
 
         }, [limit]);
 
-    return { recipes, error };
+    return { recipes, error, loading };
 }
