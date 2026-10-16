@@ -70,35 +70,50 @@
   border-bottom: 1px solid rgba(26, 23, 20, 0.15);
 }
 
-.recipe-actions {
+.recipe-actions{
   display: flex;
-  flex-wrap: nowrap;
-  gap: 12px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-.recipe-actions button {
+.recipe-actions .icon-action-btn{
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(26, 23, 20, 0.2);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-soft);
+
   cursor: pointer;
-  padding: 8px 12px;
-  border: 1px solid var(--ink-soft);
-  border-radius: 12px;
-  font-family: 'Manrope', sans-serif;
-  font-size: 14px;
-  white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
-.recipe-actions button.edit {
-  background: #478d2d;
-  color: #FFFF;
+.recipe-actions .icon-action-btn:hover{
+  background: rgba(124, 51, 64, 0.08);
+  border-color: #7C3340;
+  color: #7C3340;
+  transform: translateY(-2px);
 }
 
-.recipe-actions button.delete {
-   background: #ae0d0d;
-  color: #FFFFFF;
+.recipe-actions .favorite[aria-pressed="true"] {
+  color: #7C3340;
+  background: rgba(124, 51, 64, 0.08);
 }
 
-.recipe-actions button.favorite {
-   background: #7e5525;
-  color: #FFFFFF;
+.recipe-actions .delete:hover {
+  color: #B44141;
+  border-color: #B44141;
+  background: rgba(180, 65, 65, 0.08);
+}
+
+.recipe-actions .icon-action-btn:focus-visible {
+  outline: 2px solid #7C3340;
+  outline-offset: 3px;
 }
 
 .recipe-meta > div {

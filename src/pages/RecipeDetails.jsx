@@ -3,6 +3,7 @@ import { supabase } from "../lib/supabaseClient.js";
 import { useParams, useNavigate } from "react-router";
 import "../styles/RecipeDetails.css";
 import { UserContext } from "../context/UserContext.jsx";
+import { Heart, Pencil, Trash2 } from "lucide-react";
 
 export default function RecipeDetails() {
     const user = useContext(UserContext);
@@ -90,18 +91,18 @@ export default function RecipeDetails() {
     }
 
     async function handleUnfavorite() {
-        const {error} = await supabase
-        .from("favorites")
-        .delete()
-        .eq("id", favoriteId);
+        const { error } = await supabase
+            .from("favorites")
+            .delete()
+            .eq("id", favoriteId);
 
-    if(error) {
-        console.log("Could not remove from favorites:", error);
-        return;
-    } 
+        if (error) {
+            console.log("Could not remove from favorites:", error);
+            return;
+        }
 
-    setFavoriteId(null);
-}
+        setFavoriteId(null);
+    }
 
     async function handleDelete() {
         const confirmDelete = window.confirm("Are you sure you want to delete this recipe?");
@@ -164,15 +165,15 @@ export default function RecipeDetails() {
         }));
     }
 
-    if (loading){
+    if (loading) {
         return <p>Loading...</p>
     }
 
-    if(errorMessage) {
+    if (errorMessage) {
         return <p>{errorMessage}</p>
     }
 
-    if(!recipe) {
+    if (!recipe) {
         return <p>Recipe not found.</p>
     }
 
@@ -212,24 +213,42 @@ export default function RecipeDetails() {
                         {user && user.id === recipe.user_id && (
                             <>
 
-                                <button className="recipe-action-btn edit" onClick={openEditPopUp}>
-                                    Edit
+                                <button
+                                    type="button"
+                                    className="icon-action-btn edit"
+                                    onClick={openEditPopUp}
+                                    aria-label="Edit Recipe"
+                                    title="Edit Recipe"
+                                >
+                                    <Pencil size={19} />
                                 </button>
-                                <button className="recipe-action-btn delete" onClick={handleDelete}>
-                                    Delete
+
+                                <button
+                                    type="button"
+                                    className="icon-action-btn delete"
+                                    onClick={handleDelete}
+                                    aria-label="Delete Recipe"
+                                    title="Delete Recipe"
+                                >
+
+                                    <Trash2 size={19} />
                                 </button>
                             </>
                         )}
-                        
-                        {favoriteId ? (
-                            <button className="recipe-action-btn favorite" onClick={handleUnfavorite}>
-                                Remove from Favorites
-                            </button>
-                        ) : (
-                            <button className="recipe-action-btn favorite" onClick={handleFavorite}>
-                                Add to Favorites
-                            </button>
-                        )}
+
+                        <button
+                            type="button"
+                            className="icon-action-btn favorite"
+                            onClick={favoriteId ? handleUnfavorite : handleFavorite}
+                            title={favoriteId ? "Remove from Favorites" : "Add to Favorites"}
+                            aria-label={favoriteId ? "Remove from Favorites" : "Add to Favorites"}
+                            aria-pressed={Boolean(favoriteId)}
+                        >
+                            <Heart
+                                size={20}
+                                fill={favoriteId ? "currentColor" : "none"}
+                            />
+                        </button>
                     </div>
 
                 </div>
@@ -252,74 +271,74 @@ export default function RecipeDetails() {
                         <h2>Edit Recipe</h2>
 
                         <div className="edit-modal-scroll">
-                        <form onSubmit={handleUpdate}>
-                            <label htmlFor="edit-title">Title</label>
-                            <input
-                                type="text"
-                                id="edit-title"
-                                name="title"
-                                value={editRecipe.title}
-                                onChange={handleEditChange}
-                            />
+                            <form onSubmit={handleUpdate}>
+                                <label htmlFor="edit-title">Title</label>
+                                <input
+                                    type="text"
+                                    id="edit-title"
+                                    name="title"
+                                    value={editRecipe.title}
+                                    onChange={handleEditChange}
+                                />
 
-                            <label htmlFor="edit-description">Description</label>
-                            <textarea
-                                id="edit-description"
-                                name="description"
-                                value={editRecipe.description}
-                                onChange={handleEditChange}
-                            />
+                                <label htmlFor="edit-description">Description</label>
+                                <textarea
+                                    id="edit-description"
+                                    name="description"
+                                    value={editRecipe.description}
+                                    onChange={handleEditChange}
+                                />
 
-                            <label htmlFor="edit-ingredients">Ingredients</label>
-                            <textarea
-                                id="edit-ingredients"
-                                name="ingredients"
-                                value={editRecipe.ingredients}
-                                onChange={handleEditChange}
-                            />
+                                <label htmlFor="edit-ingredients">Ingredients</label>
+                                <textarea
+                                    id="edit-ingredients"
+                                    name="ingredients"
+                                    value={editRecipe.ingredients}
+                                    onChange={handleEditChange}
+                                />
 
-                            <label htmlFor="edit-instructions">Instructions</label>
-                            <textarea
-                                id="edit-instructions"
-                                name="instructions"
-                                value={editRecipe.instructions}
-                                onChange={handleEditChange}
-                            />
+                                <label htmlFor="edit-instructions">Instructions</label>
+                                <textarea
+                                    id="edit-instructions"
+                                    name="instructions"
+                                    value={editRecipe.instructions}
+                                    onChange={handleEditChange}
+                                />
 
-                            <label htmlFor="edit-prep-time">Prep Time (minutes)</label>
-                            <input
-                                type="number"
-                                id="edit-prep-time"
-                                name="prep_time"
-                                value={editRecipe.prep_time}
-                                onChange={handleEditChange}
-                            />
+                                <label htmlFor="edit-prep-time">Prep Time (minutes)</label>
+                                <input
+                                    type="number"
+                                    id="edit-prep-time"
+                                    name="prep_time"
+                                    value={editRecipe.prep_time}
+                                    onChange={handleEditChange}
+                                />
 
-                            <label htmlFor="edit-servings">Servings</label>
-                            <input
-                                type="number"
-                                id="edit-servings"
-                                name="servings"
-                                value={editRecipe.servings}
-                                onChange={handleEditChange}
-                            />
+                                <label htmlFor="edit-servings">Servings</label>
+                                <input
+                                    type="number"
+                                    id="edit-servings"
+                                    name="servings"
+                                    value={editRecipe.servings}
+                                    onChange={handleEditChange}
+                                />
 
-                            <label htmlFor="edit-image-url">Image URL</label>
-                            <input
-                                type="text"
-                                id="edit-image-url"
-                                name="image_url"
-                                value={editRecipe.image_url}
-                                onChange={handleEditChange}
-                            />
-                            <div className="edit-modal-buttons">
-                            <button type="submit" className="edit-save-btn">Save</button>
+                                <label htmlFor="edit-image-url">Image URL</label>
+                                <input
+                                    type="text"
+                                    id="edit-image-url"
+                                    name="image_url"
+                                    value={editRecipe.image_url}
+                                    onChange={handleEditChange}
+                                />
+                                <div className="edit-modal-buttons">
+                                    <button type="submit" className="edit-save-btn">Save</button>
 
-                            <button type="button" className="edit-close-btn" onClick={() => setPopUp(false)}>
-                                Close
-                            </button>
-                          </div>
-                        </form>
+                                    <button type="button" className="edit-close-btn" onClick={() => setPopUp(false)}>
+                                        Close
+                                    </button>
+                                </div>
+                            </form>
                         </div>
 
                     </div>
