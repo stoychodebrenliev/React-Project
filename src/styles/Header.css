@@ -22,12 +22,12 @@
 .pill-nav a,
 .pill-nav button {
   font-family: 'Manrope', sans-serif;
-  font-size: 11px;
+  font-size: clamp(10px, 0.75vw, 11px);
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  padding: 8px 18px;
+  padding: 8px clamp(8px, 1vw, 18px);
   border-radius: 999px;
   background: transparent;
   border: none;
@@ -170,7 +170,7 @@
    RESPONSIVE - ALWAYS AT THE BOTTOM
    ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 976px) {
   .pill-nav {
     display: none;
   }
